@@ -55,11 +55,13 @@ public class LoginController {
     }
 
     public static String email;
+    public static int id_u;
     private void myLoginAction() throws SQLException, ClassNotFoundException, IOException {
         DBConnector db = new DBConnector();
         Connection conn = db.getConn();
         db.getConn();
         email = new String(tf_login.getText());
+
         String pswd = new String("");
 
         if(cb_show.isSelected()){
@@ -69,7 +71,8 @@ public class LoginController {
         }
 
         PreparedStatement ps;
-        ps = conn.prepareStatement("select permission, email, password from users where email = ? and password = ?");
+        ps = conn.prepareStatement("select permission, email, password, id_u from users where email = ? and password = ?");
+
         ps.setString(1, email);
         ps.setString(2, pswd);
 
@@ -80,7 +83,8 @@ public class LoginController {
 
             String permission = result.getString("permission");
             System.out.println("poprawy Login");
-
+            id_u = result.getInt("id_u");
+            System.out.println(id_u);
             if(permission.equals("ROLE_ADMIN")){
                 System.out.println("witaj szanowy Adminie");
             } else {
@@ -89,6 +93,9 @@ public class LoginController {
                 userStage.setTitle("EventManager");
                 userStage.setScene(new Scene(view));
                 userStage.show();
+                //zamkniecie okna logowania po poprawnym zalogowaniu użytkownika
+                Stage loginStage = (Stage) btn_login.getScene().getWindow();
+                loginStage.close();
             }
         } else {
             DialogWindow dialogWindow = new DialogWindow(

@@ -1,38 +1,197 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.RadialGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UserController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UserController">
    <children>
-      <Label layoutX="215.0" layoutY="52.0" text="Panel użyszkodnia">
-         <font>
-            <Font name="Arial Black" size="14.0" />
-         </font>
-         <textFill>
-            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
-               <stops>
-                  <Stop color="BLACK" />
-                  <Stop color="#5fbc57" offset="1.0" />
-               </stops>
-            </RadialGradient>
-         </textFill>
-      </Label>
-      <Label fx:id="lbl_email" layoutX="48.0" layoutY="96.0" text="email: ">
-         <textFill>
-            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
-               <stops>
-                  <Stop color="BLACK" />
-                  <Stop color="#5fbc57" offset="1.0" />
-               </stops>
-            </RadialGradient>
-         </textFill>
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
+      <VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="550.0" prefWidth="402.0">
+         <children>
+            <Label text="Panel zapisów">
+               <font>
+                  <Font name="Arial Black" size="36.0" />
+               </font>
+               <textFill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#5fbc57" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
+            <Separator prefWidth="200.0" />
+            <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="15.0">
+               <children>
+                  <VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="200.0" spacing="10.0">
+                     <children>
+                        <Label text="Kursy">
+                           <font>
+                              <Font name="Arial Narrow Bold" size="24.0" />
+                           </font>
+                           <textFill>
+                              <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                                 <stops>
+                                    <Stop color="#1a6824" />
+                                    <Stop color="#41573f" offset="1.0" />
+                                 </stops>
+                              </RadialGradient>
+                           </textFill>
+                        </Label>
+                        <ComboBox fx:id="combo_course" minWidth="180.0" onAction="#courseAction" promptText="wybierz kurs">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </ComboBox>
+                        <Label text="Agenda">
+                           <font>
+                              <Font name="Arial Narrow Bold" size="24.0" />
+                           </font>
+                           <textFill>
+                              <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                                 <stops>
+                                    <Stop color="#1a6824" />
+                                    <Stop color="#41573f" offset="1.0" />
+                                 </stops>
+                              </RadialGradient>
+                           </textFill>
+                        </Label>
+                        <TextArea fx:id="ta_agenda" editable="false" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="260.0" prefWidth="180.0" text="tu będzie agenda" />
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </VBox>
+                  <Separator orientation="VERTICAL" prefHeight="550.0" />
+                  <VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="10.0">
+                     <children>
+                        <Label text="Preferencje">
+                           <font>
+                              <Font name="Arial Narrow Bold" size="24.0" />
+                           </font>
+                           <textFill>
+                              <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                                 <stops>
+                                    <Stop color="#1a6824" />
+                                    <Stop color="#41573f" offset="1.0" />
+                                 </stops>
+                              </RadialGradient>
+                           </textFill>
+                        </Label>
+                        <Label text="Wyżywienie">
+                           <font>
+                              <Font name="Arial Narrow" size="18.0" />
+                           </font>
+                           <textFill>
+                              <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                                 <stops>
+                                    <Stop color="#1a6824" />
+                                    <Stop color="#41573f" offset="1.0" />
+                                 </stops>
+                              </RadialGradient>
+                           </textFill>
+                        </Label>
+                        <RadioButton fx:id="rb_wege" mnemonicParsing="false" prefWidth="200.0" text="wegetariańskie">
+                           <textFill>
+                              <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                                 <stops>
+                                    <Stop color="#1a6824" />
+                                    <Stop color="#41573f" offset="1.0" />
+                                 </stops>
+                              </RadialGradient>
+                           </textFill>
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="rb_feed" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="rb_nongluten" mnemonicParsing="false" prefWidth="200.0" text="bezglutenowe" toggleGroup="$rb_feed">
+                           <textFill>
+                              <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                                 <stops>
+                                    <Stop color="#1a6824" />
+                                    <Stop color="#41573f" offset="1.0" />
+                                 </stops>
+                              </RadialGradient>
+                           </textFill>
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                        </RadioButton>
+                        <RadioButton fx:id="rb_normal" mnemonicParsing="false" prefWidth="200.0" text="klasycznie" toggleGroup="$rb_feed">
+                           <textFill>
+                              <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                                 <stops>
+                                    <Stop color="#1a6824" />
+                                    <Stop color="#41573f" offset="1.0" />
+                                 </stops>
+                              </RadialGradient>
+                           </textFill>
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                        </RadioButton>
+                        <Label text="Płatności">
+                           <font>
+                              <Font name="Arial Narrow" size="18.0" />
+                           </font>
+                           <textFill>
+                              <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                                 <stops>
+                                    <Stop color="#1a6824" />
+                                    <Stop color="#41573f" offset="1.0" />
+                                 </stops>
+                              </RadialGradient>
+                           </textFill>
+                        </Label>
+                        <CheckBox fx:id="cb_fv_decission" mnemonicParsing="false" onMouseClicked="#fvAction" prefWidth="200.0" text="faktura VAT">
+                           <textFill>
+                              <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                                 <stops>
+                                    <Stop color="#1a6824" />
+                                    <Stop color="#41573f" offset="1.0" />
+                                 </stops>
+                              </RadialGradient>
+                           </textFill>
+                        </CheckBox>
+                        <TextArea fx:id="ta_fv_details" disable="true" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="150.0" text="dane do faktury">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </TextArea>
+                        <Button fx:id="btn_send" mnemonicParsing="false" onMouseClicked="#submitAction" prefWidth="150.0" text="Zapisz">
+                           <font>
+                              <Font name="Arial Black" size="18.0" />
+                           </font>
+                           <textFill>
+                              <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                                 <stops>
+                                    <Stop color="#1a6824" />
+                                    <Stop color="#41573f" offset="1.0" />
+                                 </stops>
+                              </RadialGradient>
+                           </textFill>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>
